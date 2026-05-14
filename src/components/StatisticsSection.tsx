@@ -15,8 +15,8 @@ import {
 import { usePredictorStore } from '../store/usePredictorStore'
 
 const tooltipStyle = {
-  background: 'rgba(2, 6, 23, 0.92)',
-  border: '1px solid rgba(148, 163, 184, 0.16)',
+  background: 'rgba(10, 24, 56, 0.96)',
+  border: '1px solid rgba(148, 190, 255, 0.18)',
   borderRadius: '18px',
   color: '#fff',
 }
@@ -73,15 +73,15 @@ export function StatisticsSection() {
           <AreaChart data={momentumData}>
             <defs>
               <linearGradient id="momentumFill" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stopColor="#39d0ff" stopOpacity={0.65} />
-                <stop offset="100%" stopColor="#39d0ff" stopOpacity={0} />
+                <stop offset="0%" stopColor="#66a3ff" stopOpacity={0.65} />
+                <stop offset="100%" stopColor="#66a3ff" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid stroke="rgba(148,163,184,0.09)" vertical={false} />
             <XAxis dataKey="team" tick={{ fill: '#94a3b8', fontSize: 12 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: '#94a3b8', fontSize: 12 }} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
-            <Area type="monotone" dataKey="momentum" stroke="#39d0ff" fill="url(#momentumFill)" strokeWidth={3} />
+            <Area type="monotone" dataKey="momentum" stroke="#66a3ff" fill="url(#momentumFill)" strokeWidth={3} />
           </AreaChart>
         </ResponsiveContainer>
       ),
@@ -114,9 +114,9 @@ export function StatisticsSection() {
         Statistics Section
       </p>
       <div className="mb-6">
-        <h2 className="section-title">Probability, Momentum, and NRR Telemetry</h2>
+        <h2 className="section-title">Probability, Momentum, and NRR Trends</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300/74">
-          Read the playoff race like a race engineer: qualification odds, current form, and run-rate leverage all update from the same scenario engine.
+          Track qualification odds, current form, and run-rate pressure together from the same scenario engine.
         </p>
       </div>
 
@@ -130,15 +130,15 @@ export function StatisticsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.55, delay: index * 0.08 }}
-              className="rounded-[28px] border border-white/10 bg-slate-950/38 p-4"
+              className="rounded-[28px] border border-blue-100/10 bg-[#0c1d40] p-4"
             >
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/6">
-                  <Icon className="h-5 w-5 text-cyan-300" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-200/10">
+                  <Icon className="h-5 w-5 text-blue-100" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{card.title}</p>
-                  <p className="text-xs text-slate-400">Realtime projection layer</p>
+                  <p className="text-xs text-slate-400">Live projection view</p>
                 </div>
               </div>
               {card.content}

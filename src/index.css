@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Manrope", sans-serif;
-  --font-display: "Orbitron", sans-serif;
-  --color-aurora-cyan: #39d0ff;
-  --color-aurora-blue: #5a7cff;
-  --color-aurora-green: #38f4c7;
-  --color-aurora-red: #ff5f7a;
-  --color-aurora-gold: #ffcf5d;
+  --font-display: "Sora", sans-serif;
+  --color-ipl-blue: #0f5bd8;
+  --color-ipl-blue-deep: #0a2f78;
+  --color-ipl-blue-soft: #e8f1ff;
+  --color-ipl-gold: #f5c451;
+  --color-ipl-ink: #0f172a;
 }
 
 :root {
   font-family: var(--font-sans);
-  color: rgba(241, 245, 249, 0.96);
-  background: #02040b;
+  color: #e8eef8;
+  background: #07142d;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +30,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(57, 208, 255, 0.16), transparent 30%),
-    linear-gradient(180deg, #07111f 0%, #050913 45%, #02040b 100%);
+    radial-gradient(circle at top, rgba(75, 140, 255, 0.22), transparent 34%),
+    linear-gradient(180deg, #0d1f44 0%, #0b1734 42%, #081226 100%);
 }
 
 body::before {
@@ -40,11 +40,11 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black, transparent 85%);
-  opacity: 0.4;
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: linear-gradient(180deg, black, transparent 92%);
+  opacity: 0.16;
 }
 
 #root {
@@ -52,7 +52,7 @@ body::before {
 }
 
 ::selection {
-  background: rgba(57, 208, 255, 0.24);
+  background: rgba(86, 149, 255, 0.3);
   color: white;
 }
 
@@ -80,21 +80,21 @@ body::before {
 
 @layer components {
   .glass-panel {
-    background: linear-gradient(180deg, rgba(9, 17, 31, 0.86), rgba(5, 10, 20, 0.72));
-    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: linear-gradient(180deg, rgba(11, 29, 67, 0.94), rgba(9, 23, 53, 0.92));
+    border: 1px solid rgba(148, 190, 255, 0.16);
     box-shadow:
-      0 20px 60px rgba(3, 7, 18, 0.55),
+      0 18px 48px rgba(4, 12, 30, 0.34),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(26px);
+    backdrop-filter: blur(16px);
   }
 
   .glass-panel-strong {
-    background: linear-gradient(180deg, rgba(8, 18, 35, 0.92), rgba(2, 8, 18, 0.86));
-    border: 1px solid rgba(90, 124, 255, 0.22);
+    background: linear-gradient(180deg, rgba(10, 32, 79, 0.96), rgba(8, 25, 62, 0.95));
+    border: 1px solid rgba(111, 168, 255, 0.2);
     box-shadow:
-      0 24px 80px rgba(2, 6, 23, 0.7),
+      0 22px 56px rgba(4, 12, 30, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(18px);
   }
 
   .glow-border {
@@ -108,7 +108,7 @@ body::before {
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(130deg, rgba(57, 208, 255, 0.6), rgba(90, 124, 255, 0.12), rgba(56, 244, 199, 0.45));
+    background: linear-gradient(135deg, rgba(122, 175, 255, 0.52), rgba(255, 255, 255, 0.08), rgba(245, 196, 81, 0.26));
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -118,20 +118,20 @@ body::before {
   }
 
   .section-title {
-    @apply font-display text-[1.7rem] font-semibold tracking-[0.22em] text-white sm:text-[2rem];
+    @apply font-display text-[1.65rem] font-bold tracking-[-0.02em] text-white sm:text-[1.95rem];
   }
 
   .section-kicker {
-    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.35em] text-cyan-200/80;
+    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200/15 bg-blue-200/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-blue-100/85;
   }
 
   .stat-chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200/80;
+    @apply inline-flex items-center gap-2 rounded-full border border-blue-200/15 bg-blue-200/8 px-3 py-1 text-xs text-slate-100/80;
   }
 
   .shimmer {
     background:
-      linear-gradient(110deg, rgba(255, 255, 255, 0.04) 8%, rgba(255, 255, 255, 0.12) 18%, rgba(255, 255, 255, 0.04) 33%);
+      linear-gradient(110deg, rgba(255, 255, 255, 0.05) 8%, rgba(140, 190, 255, 0.18) 18%, rgba(255, 255, 255, 0.05) 33%);
     background-size: 200% 100%;
     animation: shimmer 2.5s linear infinite;
   }
@@ -166,10 +166,10 @@ body::before {
 @keyframes pulseGlow {
   0%,
   100% {
-    box-shadow: 0 0 0 rgba(57, 208, 255, 0.2);
+    box-shadow: 0 0 0 rgba(86, 149, 255, 0.16);
   }
 
   50% {
-    box-shadow: 0 0 35px rgba(57, 208, 255, 0.28);
+    box-shadow: 0 0 30px rgba(86, 149, 255, 0.22);
   }
 }

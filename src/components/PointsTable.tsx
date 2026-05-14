@@ -11,7 +11,7 @@ export function PointsTable() {
       id="points-table"
       className="glass-panel glow-border flex h-full min-w-0 flex-col overflow-hidden rounded-[32px]"
     >
-      <div className="border-b border-white/8 px-5 py-5 sm:px-6">
+      <div className="border-b border-blue-100/8 px-5 py-5 sm:px-6">
         <p className="section-kicker">
           <ArrowDownUp className="h-3.5 w-3.5" />
           Dynamic Points Table
@@ -20,10 +20,10 @@ export function PointsTable() {
           <div>
             <h2 className="section-title">Animated Standings + NRR Engine</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300/74">
-              Teams auto-sort by points and NRR. The top four glow as qualification favorites while bubble teams pulse under pressure.
+              Teams sort automatically by points and NRR so the playoff line and bubble battle stay easy to track.
             </p>
           </div>
-          <div className="rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-xs uppercase tracking-[0.32em] text-cyan-200/90">
+          <div className="rounded-full border border-blue-100/18 bg-blue-200/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-blue-100/90">
             Top 4 Line
           </div>
         </div>
@@ -32,7 +32,7 @@ export function PointsTable() {
       <div className="scrollbar-hidden min-w-0 overflow-x-auto px-3 pb-4 pt-3 sm:px-4">
         <table className="min-w-full border-separate border-spacing-y-2 text-left">
           <thead>
-            <tr className="text-[11px] uppercase tracking-[0.3em] text-slate-400">
+            <tr className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
               {['#', 'Team', 'P', 'W', 'L', 'NR', 'Pts', 'NRR', 'Qualify'].map((heading) => (
                 <th key={heading} className="px-4 py-3 font-medium">
                   {heading}
@@ -57,14 +57,14 @@ export function PointsTable() {
                     transition={{ duration: 0.45 }}
                     className={`rounded-2xl ${
                       inTopFour
-                        ? 'bg-[linear-gradient(90deg,rgba(57,208,255,0.12),rgba(255,255,255,0.03))] shadow-[0_0_28px_rgba(57,208,255,0.1)]'
+                        ? 'bg-[linear-gradient(90deg,rgba(88,149,255,0.18),rgba(255,255,255,0.03))] shadow-[0_10px_30px_rgba(15,91,216,0.12)]'
                         : 'bg-white/[0.03]'
                     }`}
                   >
                     <td className="rounded-l-2xl px-4 py-4 text-sm font-semibold text-white">
                       <div className="flex items-center gap-2">
                         <span>{index + 1}</span>
-                        {inTopFour ? <Zap className="h-4 w-4 text-cyan-300" /> : null}
+                        {inTopFour ? <Zap className="h-4 w-4 text-blue-100" /> : null}
                         {pressure ? <ShieldAlert className="h-4 w-4 text-amber-300" /> : null}
                       </div>
                     </td>
@@ -93,15 +93,15 @@ export function PointsTable() {
                     </td>
                     <td className="rounded-r-2xl px-4 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="h-2.5 w-24 overflow-hidden rounded-full bg-white/6">
+                        <div className="h-2.5 w-24 overflow-hidden rounded-full bg-blue-100/10">
                           <motion.div
                             initial={false}
                             animate={{ width: `${metric?.probability ?? 0}%` }}
                             transition={{ duration: 0.55 }}
                             className={`h-full rounded-full ${
                               inTopFour
-                                ? 'bg-gradient-to-r from-cyan-300 to-emerald-300'
-                                : 'bg-gradient-to-r from-amber-300 to-rose-300'
+                                ? 'bg-gradient-to-r from-blue-200 to-blue-400'
+                                : 'bg-gradient-to-r from-amber-300 to-blue-400'
                             }`}
                           />
                         </div>

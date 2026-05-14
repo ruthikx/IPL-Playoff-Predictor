@@ -43,7 +43,7 @@ function App() {
   }, [hydrateTeams, teams])
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(57,208,255,0.16),_transparent_26%),linear-gradient(180deg,_#07111f_0%,_#050913_45%,_#02040b_100%)] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(93,152,255,0.2),_transparent_28%),linear-gradient(180deg,_#0d1f44_0%,_#0a1835_46%,_#081226_100%)] text-white">
       <BackgroundEffects />
       <Navbar />
 
@@ -70,7 +70,7 @@ function App() {
                 <div className="shimmer h-7 w-56 rounded-full" />
                 <div className="mt-4 grid gap-4 xl:grid-cols-3">
                   {[0, 1, 2].map((item) => (
-                    <div key={item} className="rounded-[28px] border border-white/10 bg-slate-950/38 p-4">
+                    <div key={item} className="rounded-[28px] border border-blue-100/10 bg-[#0c1d40] p-4">
                       <div className="shimmer h-56 rounded-[20px]" />
                     </div>
                   ))}

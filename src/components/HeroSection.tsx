@@ -17,27 +17,26 @@ export function HeroSection() {
         <div className="relative z-10 max-w-3xl">
           <div className="section-kicker">
             <Sparkles className="h-3.5 w-3.5" />
-            Sports Intelligence
+            IPL Dashboard
           </div>
           <h1 className="font-display text-4xl leading-[0.95] tracking-[0.08em] text-white sm:text-6xl xl:text-[5rem]">
-            IPL AI
+            IPL
             <span className="block bg-gradient-to-r from-cyan-300 via-white to-emerald-300 bg-clip-text text-transparent">
               Playoff Predictor
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-            Simulate scenarios. Analyze qualification paths. Predict the playoffs. Built like a premium
-            broadcast control room with instant table updates, NRR pressure modeling, and an AI cricket analyst.
+            Simulate scenarios, follow qualification paths, and track the playoff race with instant table updates and NRR pressure insights.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
             <div className="stat-chip">
               <Radar className="h-4 w-4 text-cyan-300" />
-              Live scenario telemetry
+              Live scenario tracker
             </div>
             <div className="stat-chip">
               <BrainCircuit className="h-4 w-4 text-emerald-300" />
-              AI-powered analyst rail
+              Match insight panel
             </div>
             <div className="stat-chip">
               <ShieldCheck className="h-4 w-4 text-amber-300" />
@@ -56,7 +55,7 @@ export function HeroSection() {
         <p className="section-kicker">Match Summary</p>
         <div className="rounded-[28px] border border-cyan-300/15 bg-slate-950/40 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
           <div className="mb-3 flex items-center justify-between">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300/70">AI Readout</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300/70">Match Readout</p>
             <span className="rounded-full bg-emerald-400/12 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-emerald-300">
               Live
             </span>

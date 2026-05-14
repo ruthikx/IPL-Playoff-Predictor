@@ -30,15 +30,15 @@ export function AnalystPanel() {
         <div>
           <p className="section-kicker">
             <Sparkles className="h-3.5 w-3.5" />
-            AI Cricket Analyst
+            Cricket Analyst
           </p>
           <h2 className="section-title text-[1.45rem] sm:text-[1.7rem]">Scenario Intelligence Sidebar</h2>
           <p className="mt-3 text-sm leading-7 text-slate-300/74">
-            Ask about qualification paths, NRR swings, or bubble-team pressure. The panel is frontend-ready for FastAPI and LangChain integration later.
+            Ask about qualification paths, NRR swings, or bubble-team pressure from the current simulation.
           </p>
         </div>
-        <div className="rounded-full border border-emerald-300/18 bg-emerald-300/10 px-3 py-2 text-[11px] uppercase tracking-[0.32em] text-emerald-200">
-          Agent Live
+        <div className="rounded-full border border-blue-100/18 bg-blue-200/10 px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-blue-100">
+          Live
         </div>
       </div>
 
@@ -51,14 +51,14 @@ export function AnalystPanel() {
               setMessage('')
               void sendAnalystMessage(prompt)
             }}
-            className="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-xs text-slate-200/82 transition hover:bg-white/10 hover:text-white"
+            className="rounded-full border border-blue-100/12 bg-blue-200/8 px-3 py-2 text-xs text-slate-200/82 transition hover:bg-blue-200/12 hover:text-white"
           >
             {prompt}
           </button>
         ))}
       </div>
 
-      <div className="rounded-[28px] border border-white/10 bg-slate-950/44 p-3">
+      <div className="rounded-[28px] border border-blue-100/10 bg-[#091833] p-3">
         <div className="max-h-[420px] space-y-3 overflow-y-auto pr-1">
           {analystMessages.map((entry) => (
             <motion.div
@@ -67,13 +67,13 @@ export function AnalystPanel() {
               animate={{ opacity: 1, y: 0 }}
               className={`rounded-3xl px-4 py-3 ${
                 entry.role === 'assistant'
-                  ? 'mr-4 border border-cyan-300/14 bg-cyan-300/8 text-slate-100'
+                  ? 'mr-4 border border-blue-100/16 bg-blue-200/10 text-slate-100'
                   : 'ml-8 border border-white/10 bg-white/7 text-white'
               }`}
             >
               <div className="mb-2 flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-slate-400">
-                {entry.role === 'assistant' ? <Bot className="h-3.5 w-3.5 text-cyan-300" /> : <Mic className="h-3.5 w-3.5 text-white" />}
-                {entry.role === 'assistant' ? 'AI Analyst' : 'You'}
+                {entry.role === 'assistant' ? <Bot className="h-3.5 w-3.5 text-blue-100" /> : <Mic className="h-3.5 w-3.5 text-white" />}
+                {entry.role === 'assistant' ? 'Analyst' : 'You'}
               </div>
               <p className="text-sm leading-7">{entry.content}</p>
             </motion.div>
@@ -85,16 +85,16 @@ export function AnalystPanel() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 16 }}
-                className="mr-6 rounded-3xl border border-cyan-300/14 bg-cyan-300/8 px-4 py-4"
+                className="mr-6 rounded-3xl border border-blue-100/16 bg-blue-200/10 px-4 py-4"
               >
                 <div className="mb-2 flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-slate-400">
-                  <Bot className="h-3.5 w-3.5 text-cyan-300" />
-                  AI Analyst
+                  <Bot className="h-3.5 w-3.5 text-blue-100" />
+                  Analyst
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-cyan-300 [animation-delay:-0.3s]" />
-                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-cyan-300 [animation-delay:-0.15s]" />
-                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-cyan-300" />
+                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-blue-200 [animation-delay:-0.3s]" />
+                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-blue-200 [animation-delay:-0.15s]" />
+                  <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-blue-200" />
                 </div>
               </motion.div>
             ) : null}
@@ -107,12 +107,12 @@ export function AnalystPanel() {
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               placeholder="Ask about RCB, MI, NRR pressure, or qualification paths..."
-              className="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-400 focus:border-cyan-300/35 focus:bg-white/8"
+              className="w-full rounded-2xl border border-blue-100/12 bg-blue-200/8 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-400 focus:border-blue-100/30 focus:bg-blue-200/10"
             />
           </div>
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-2xl border border-cyan-300/20 bg-cyan-300/12 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/18"
+            className="inline-flex items-center gap-2 rounded-2xl border border-blue-100/18 bg-blue-200/12 px-4 py-3 text-sm font-semibold text-blue-50 transition hover:bg-blue-200/16"
           >
             Send
             <CornerDownLeft className="h-4 w-4" />

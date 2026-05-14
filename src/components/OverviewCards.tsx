@@ -18,14 +18,14 @@ export function OverviewCards() {
       title: 'Qualification Pulse',
       value: `${averageProbability}%`,
       icon: Trophy,
-      accent: 'from-cyan-400/30 to-blue-400/10',
+      accent: 'from-blue-300/30 to-blue-500/10',
       note: 'Average top-four conversion rate in the current simulation.',
     },
     {
       title: 'Top Contenders',
       value: topContenders.map((entry) => entry.team).join(' / '),
       icon: Crown,
-      accent: 'from-emerald-400/30 to-cyan-400/10',
+      accent: 'from-blue-400/24 to-sky-300/10',
       note: topContenders
         .map((entry) => `${entry.team} ${entry.probability}%`)
         .join(' • '),
@@ -34,14 +34,14 @@ export function OverviewCards() {
       title: 'Elimination Watch',
       value: eliminatedTeams.length ? eliminatedTeams.join(' / ') : 'No side fully out',
       icon: AlertTriangle,
-      accent: 'from-rose-400/26 to-amber-400/10',
+      accent: 'from-amber-300/30 to-blue-500/10',
       note: 'Flags teams with minimal qualification routes left in this scenario tree.',
     },
     {
       title: 'Projected Leader',
       value: projectedLeader?.shortName ?? 'GT',
       icon: ArrowUpRight,
-      accent: 'from-blue-400/26 to-indigo-400/10',
+      accent: 'from-blue-500/26 to-sky-300/10',
       note: projectedLeader
         ? `${TEAM_META[projectedLeader.code].name} lead with ${projectedLeader.points} pts and ${projectedLeader.nrr >= 0 ? '+' : ''}${projectedLeader.nrr.toFixed(3)} NRR.`
         : 'Leaderboard initializing.',
@@ -62,13 +62,13 @@ export function OverviewCards() {
             className="glass-panel glow-border rounded-[28px] p-5"
           >
             <div className={`mb-4 rounded-2xl bg-gradient-to-br ${card.accent} p-[1px]`}>
-              <div className="flex items-center justify-between rounded-2xl bg-slate-950/85 px-4 py-4">
+              <div className="flex items-center justify-between rounded-2xl bg-[#0b1c3d] px-4 py-4">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-slate-400">{card.title}</p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400">{card.title}</p>
                   <p className="mt-3 text-2xl font-semibold text-white">{card.value}</p>
                 </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/6">
-                  <Icon className="h-5 w-5 text-cyan-300" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-200/10">
+                  <Icon className="h-5 w-5 text-blue-100" />
                 </div>
               </div>
             </div>

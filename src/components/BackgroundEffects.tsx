@@ -11,14 +11,14 @@ const particles = Array.from({ length: 16 }, (_, index) => ({
 export function BackgroundEffects() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute inset-x-0 top-[-18rem] h-[28rem] bg-[radial-gradient(circle,_rgba(57,208,255,0.22),_transparent_58%)] blur-3xl" />
-      <div className="absolute right-[-8rem] top-[22%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,_rgba(90,124,255,0.18),_transparent_62%)] blur-3xl" />
-      <div className="absolute left-[-10rem] top-[52%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,_rgba(56,244,199,0.12),_transparent_65%)] blur-3xl" />
+      <div className="absolute inset-x-0 top-[-18rem] h-[28rem] bg-[radial-gradient(circle,_rgba(104,162,255,0.22),_transparent_58%)] blur-3xl" />
+      <div className="absolute right-[-8rem] top-[22%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,_rgba(40,96,201,0.22),_transparent_62%)] blur-3xl" />
+      <div className="absolute left-[-10rem] top-[52%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,_rgba(245,196,81,0.1),_transparent_65%)] blur-3xl" />
 
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
-          className="absolute rounded-full bg-cyan-300/40 shadow-[0_0_18px_rgba(57,208,255,0.45)]"
+          className="absolute rounded-full bg-blue-200/40 shadow-[0_0_18px_rgba(104,162,255,0.32)]"
           style={{
             left: particle.left,
             top: particle.top,
