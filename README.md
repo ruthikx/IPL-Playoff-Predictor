@@ -1,73 +1,132 @@
-# React + TypeScript + Vite
+# 🏏 IPL Playoff Predictor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive IPL playoff points table simulator built with React, TypeScript, and Recharts — predict team qualification scenarios by simulating remaining match results.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?logo=tailwind-css&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**IPL Playoff Predictor** is a fan-built web tool that lets you simulate the Indian Premier League (IPL) season and explore playoff qualification scenarios. Simply pick match winners for upcoming fixtures and instantly see how the points table and playoff picture evolve — no manual math required.
 
-## Expanding the ESLint configuration
+Whether you're curious if your favourite team can still make it to the top 4, or want to figure out which upcoming match is the most crucial, this tool has you covered.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 🔢 **Live Points Table** — Tracks wins, losses, points, and NRR for all 10 IPL teams
+- 🎯 **Match Simulator** — Pick winners for remaining fixtures and see the table update in real time
+- 📊 **Qualification Charts** — Visual breakdown of each team's playoff chances using Recharts
+- 🔄 **Smooth Animations** — Powered by Framer Motion for a polished user experience
+- 🧮 **State Management** — Zustand keeps the app state clean and predictable
+- 📱 **Responsive Design** — Works on desktop and mobile via Tailwind CSS
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 19 | UI framework |
+| TypeScript | Type safety |
+| Vite | Dev server & bundler |
+| Tailwind CSS 4 | Styling |
+| Framer Motion | Animations |
+| Recharts | Data visualizations |
+| Zustand | State management |
+| Lucide React | Icons |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/ruthikx/IPL-Playoff-Predictor.git
+
+# Navigate into the project directory
+cd IPL-Playoff-Predictor
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The output will be in the `dist/` folder, ready to deploy to any static hosting platform (Vercel, Netlify, GitHub Pages, etc.).
+
+---
+
+## 📁 Project Structure
+
+```
+IPL-Playoff-Predictor/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── store/           # Zustand state management
+│   ├── types/           # TypeScript interfaces & types
+│   ├── utils/           # Helper functions (points calc, NRR, etc.)
+│   ├── App.tsx          # Root component
+│   └── main.tsx         # App entry point
+├── index.html
+├── package.json
+├── tailwind.config.ts
+├── tsconfig.json
+└── vite.config.ts
+```
+
+> Note: Update the `src/` structure above to match your actual folder layout.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgements
+
+- IPL schedule and team data sourced from publicly available information
+- Inspired by the passion of IPL fans everywhere 🏟️
+
+---
+
+*Built with ❤️ by [ruthikx](https://github.com/ruthikx)*
