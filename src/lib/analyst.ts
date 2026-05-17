@@ -94,6 +94,14 @@ const getGenericResponse = (
   const leader = standings[0]
   const bubble = standings[3]
 
+  if (!leader || !bubble) {
+    return 'The simulation is ready, but I need more standings context before I can call out the key playoff fork.'
+  }
+
+  if (!keyFixture) {
+    return `${leader.shortName} are currently setting the pace, and ${bubble.shortName} hold the playoff line at ${bubble.points} points. There are no remaining fixtures left in this simulation window, so the race now comes down to the results already on the board.`
+  }
+
   return `${leader.shortName} are steering the table, but the real tension is around ${bubble.shortName}'s playoff line at ${bubble.points} points. If you want the cleanest scenario fork, start with ${keyFixture.teamA} vs ${keyFixture.teamB}; that match has a direct ripple on both points and NRR.`
 }
 

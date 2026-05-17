@@ -29,6 +29,7 @@ export interface TeamSnapshot {
 
 export interface Fixture {
   id: string
+  matchDate: string
   dateLabel: string
   timeLabel: string
   venue: string

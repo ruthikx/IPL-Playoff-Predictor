@@ -42,6 +42,12 @@ export function MatchPredictionPanel() {
       </div>
 
       <div className="scrollbar-hidden min-h-0 flex-1 space-y-4 overflow-y-auto pr-1">
+        {fixtures.length === 0 ? (
+          <div className="rounded-[28px] border border-blue-100/10 bg-[#0c1d40]/90 p-6 text-sm leading-7 text-slate-300/78">
+            There are no remaining fixtures in the current IPL schedule window. When new matches are added to the data,
+            they will appear here automatically.
+          </div>
+        ) : null}
         {fixtures.map((fixture, index) => {
           const outcome = outcomes[fixture.id]
           const teamA = TEAM_META[fixture.teamA]

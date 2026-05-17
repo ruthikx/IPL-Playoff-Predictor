@@ -1,5 +1,22 @@
 import type { Fixture, TeamCode, TeamSnapshot } from '../types/ipl'
 
+const IPL_TIME_ZONE = 'Asia/Kolkata'
+
+const getTodayInIplTimeZone = () => {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: IPL_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date())
+
+  const year = parts.find((part) => part.type === 'year')?.value
+  const month = parts.find((part) => part.type === 'month')?.value
+  const day = parts.find((part) => part.type === 'day')?.value
+
+  return `${year}-${month}-${day}`
+}
+
 export const TEAM_META: Record<TeamCode, { name: string; shortName: string; color: string }> = {
   GT: { name: 'Gujarat Titans', shortName: 'GT', color: '#2dd4bf' },
   RCB: { name: 'Royal Challengers Bengaluru', shortName: 'RCB', color: '#ff5f7a' },
@@ -26,9 +43,10 @@ export const fallbackTeams: TeamSnapshot[] = [
   { code: 'LSG', name: TEAM_META.LSG.name, shortName: 'LSG', color: TEAM_META.LSG.color, played: 11, wins: 3, losses: 8, noResults: 0, points: 6, nrr: -0.907, momentum: ['L', 'L', 'L', 'W', 'L'] },
 ]
 
-export const fixtures: Fixture[] = [
+const allFixtures: Fixture[] = [
   {
     id: '6666db12-b9cc-49f0-b3af-5628fc8c53fa',
+    matchDate: '2026-05-14',
     dateLabel: 'May 14',
     timeLabel: '7:30 PM IST',
     venue: 'Dharamsala',
@@ -40,6 +58,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '68746b1f-d4b0-4f0a-a46a-46a1946aae32',
+    matchDate: '2026-05-15',
     dateLabel: 'May 15',
     timeLabel: '7:30 PM IST',
     venue: 'Lucknow',
@@ -51,6 +70,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '166633a2-cecb-4cf3-a984-78dc898b5345',
+    matchDate: '2026-05-16',
     dateLabel: 'May 16',
     timeLabel: '7:30 PM IST',
     venue: 'Kolkata',
@@ -62,6 +82,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '288e3406-3692-400a-bc22-fb8cfa0db2ca',
+    matchDate: '2026-05-17',
     dateLabel: 'May 17',
     timeLabel: '3:30 PM IST',
     venue: 'Dharamsala',
@@ -73,6 +94,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '990e89ea-3f6a-4196-ac73-7ad1a5f8c451',
+    matchDate: '2026-05-17',
     dateLabel: 'May 17',
     timeLabel: '7:30 PM IST',
     venue: 'Delhi',
@@ -84,6 +106,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '8416c2a9-4a74-4ac2-a6ae-5ad2538cbc56',
+    matchDate: '2026-05-18',
     dateLabel: 'May 18',
     timeLabel: '7:30 PM IST',
     venue: 'Chennai',
@@ -95,6 +118,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '3b225f44-ddf2-41d4-8079-7a3f81876e35',
+    matchDate: '2026-05-19',
     dateLabel: 'May 19',
     timeLabel: '7:30 PM IST',
     venue: 'Jaipur',
@@ -106,6 +130,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '5b1d59f9-51fd-449d-8cf1-9fc15ef15675',
+    matchDate: '2026-05-20',
     dateLabel: 'May 20',
     timeLabel: '7:30 PM IST',
     venue: 'Kolkata',
@@ -117,6 +142,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: 'fd660ab1-c4bf-4c0f-b1b9-7232361cd1e8',
+    matchDate: '2026-05-21',
     dateLabel: 'May 21',
     timeLabel: '7:30 PM IST',
     venue: 'Ahmedabad',
@@ -128,6 +154,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: 'bf23431b-ba1c-4147-94d9-b8d361a3ce9e',
+    matchDate: '2026-05-22',
     dateLabel: 'May 22',
     timeLabel: '7:30 PM IST',
     venue: 'Hyderabad',
@@ -139,6 +166,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '7134216b-553c-4099-82a8-ee48bd9c46f3',
+    matchDate: '2026-05-23',
     dateLabel: 'May 23',
     timeLabel: '7:30 PM IST',
     venue: 'Lucknow',
@@ -150,6 +178,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: 'c0d94cec-8a67-4414-80af-81e7d4a9ee9a',
+    matchDate: '2026-05-24',
     dateLabel: 'May 24',
     timeLabel: '3:30 PM IST',
     venue: 'Mumbai',
@@ -161,6 +190,7 @@ export const fixtures: Fixture[] = [
   },
   {
     id: '8f61d649-f53b-4e79-9bfb-661cfe69be3b',
+    matchDate: '2026-05-24',
     dateLabel: 'May 24',
     timeLabel: '7:30 PM IST',
     venue: 'Kolkata',
@@ -171,3 +201,5 @@ export const fixtures: Fixture[] = [
     nrrSwing: 0.149,
   },
 ]
+
+export const fixtures = allFixtures.filter((fixture) => fixture.matchDate >= getTodayInIplTimeZone())
