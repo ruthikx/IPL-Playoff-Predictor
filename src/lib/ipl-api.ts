@@ -148,7 +148,7 @@ export async function fetchLiveTeams(): Promise<TeamSnapshot[]> {
     const momentumByTeam = buildMomentumByTeam(seriesPayload.data?.matchList ?? [])
     const rows = Array.isArray(pointsPayload.data) ? pointsPayload.data : []
     const liveTeams = rows
-      .map((entry, index) => {
+      .map((entry) => {
         const teamName = getStringValue(entry.teamname)
         if (!teamName) return null
 
@@ -162,8 +162,6 @@ export async function fetchLiveTeams(): Promise<TeamSnapshot[]> {
         const noResults = getNumericValue(entry.nr)
         const points = wins * 2 + noResults
         const fallbackNrr = getFallbackNrr(code)
-        const nrrSeed = rows.length - index
-
         return {
           code,
           name: meta.name,
@@ -174,9 +172,9 @@ export async function fetchLiveTeams(): Promise<TeamSnapshot[]> {
           losses,
           noResults,
           points,
-          // CricAPI's series_points payload currently omits NRR, so preserve a stable
-          // tie-break seed from the API order and blend it with the existing fallback NRR.
-          nrr: fallbackNrr + nrrSeed / 10000,
+          // CricAPI's series_points payload currently omits NRR, so keep the latest
+          // known table NRR as the display and tie-break baseline.
+          nrr: fallbackNrr,
           momentum: [...(momentumByTeam[code] ?? getFallbackMomentum(code))],
         } satisfies TeamSnapshot
       })

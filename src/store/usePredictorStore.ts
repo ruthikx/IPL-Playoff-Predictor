@@ -34,7 +34,7 @@ const cloneTeams = (teams: TeamSnapshot[]) =>
 
 const createSnapshot = (outcomes: Record<string, MatchOutcome>, baseTeams: TeamSnapshot[]) => {
   const standings = buildStandings(outcomes, baseTeams)
-  const metrics = deriveQualificationMetrics(standings, outcomes)
+  const metrics = deriveQualificationMetrics(standings, outcomes, baseTeams)
 
   return {
     standings,

@@ -82,44 +82,63 @@ const countRemainingGames = (outcomes: Record<string, MatchOutcome>) => {
 }
 
 const getTrend = (rank: number, probability: number): QualificationMetric['trend'] => {
-  if (rank <= 4 && probability >= 70) return 'up'
-  if (rank > 4 && probability <= 35) return 'down'
+  if (rank <= 4 && probability >= 50) return 'up'
+  if (rank > 4 && probability === 0) return 'down'
   return 'steady'
+}
+
+const OUTCOME_OPTIONS: Array<Exclude<MatchOutcome, null>> = ['A', 'B', 'NR']
+
+const getUnresolvedFixtures = (outcomes: Record<string, MatchOutcome>) =>
+  fixtures.filter((fixture) => !outcomes[fixture.id])
+
+const getQualificationCounts = (
+  baseOutcomes: Record<string, MatchOutcome>,
+  baseTeams: TeamSnapshot[],
+) => {
+  const unresolvedFixtures = getUnresolvedFixtures(baseOutcomes)
+  const counts = Object.keys(TEAM_META).reduce(
+    (acc, team) => ({ ...acc, [team]: 0 }),
+    {} as Record<TeamCode, number>,
+  )
+
+  let totalScenarios = 0
+
+  const walk = (fixtureIndex: number, scenarioOutcomes: Record<string, MatchOutcome>) => {
+    if (fixtureIndex >= unresolvedFixtures.length) {
+      const simulatedStandings = buildStandings(scenarioOutcomes, baseTeams)
+      simulatedStandings.slice(0, 4).forEach((team) => {
+        counts[team.code] += 1
+      })
+      totalScenarios += 1
+      return
+    }
+
+    const fixture = unresolvedFixtures[fixtureIndex]
+
+    OUTCOME_OPTIONS.forEach((outcome) => {
+      walk(fixtureIndex + 1, {
+        ...scenarioOutcomes,
+        [fixture.id]: outcome,
+      })
+    })
+  }
+
+  walk(0, baseOutcomes)
+
+  return { counts, totalScenarios }
 }
 
 export const deriveQualificationMetrics = (
   standings: TeamSnapshot[],
   outcomes: Record<string, MatchOutcome>,
+  baseTeams: TeamSnapshot[] = fallbackTeams,
 ): QualificationMetric[] => {
-  const remainingGames = countRemainingGames(outcomes)
-  const cutoffPoints = standings[3]?.points ?? 0
+  const { counts, totalScenarios } = getQualificationCounts(outcomes, baseTeams)
 
   return standings.map((team, index) => {
-    const formScore =
-      team.momentum.reduce((total, entry) => total + formValue[entry], 0) /
-      team.momentum.length
-    const maxPoints = team.points + remainingGames[team.code] * 2
-    let probability =
-      52 +
-      (4 - (index + 1)) * 10 +
-      (team.points - cutoffPoints) * 7 +
-      team.nrr * 16 +
-      formScore * 12 +
-      remainingGames[team.code] * 1.5
-
-    if (maxPoints < cutoffPoints) {
-      probability = Math.min(probability, 8)
-    }
-
-    if (remainingGames[team.code] === 0 && index > 3 && team.points < cutoffPoints) {
-      probability = 0
-    }
-
-    if (index <= 1) {
-      probability += 8
-    }
-
-    probability = Math.max(0, Math.min(99, Math.round(probability)))
+    const probability =
+      totalScenarios === 0 ? (index < 4 ? 100 : 0) : Math.round((counts[team.code] / totalScenarios) * 100)
 
     return {
       team: team.code,
@@ -147,7 +166,7 @@ export const getEliminatedTeams = (
     .filter((team) => {
       const metric = metrics.find((entry) => entry.team === team.code)
       const maxPoints = team.points + remainingGames[team.code] * 2
-      return (metric?.probability ?? 0) <= 12 || maxPoints < cutoffPoints
+      return (metric?.probability ?? 0) === 0 || maxPoints < cutoffPoints
     })
     .map((team) => team.code)
 }

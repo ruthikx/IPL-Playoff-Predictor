@@ -31,16 +31,16 @@ export const TEAM_META: Record<TeamCode, { name: string; shortName: string; colo
 }
 
 export const fallbackTeams: TeamSnapshot[] = [
-  { code: 'RCB', name: TEAM_META.RCB.name, shortName: 'RCB', color: TEAM_META.RCB.color, played: 12, wins: 8, losses: 4, noResults: 0, points: 16, nrr: 1.053, momentum: ['W', 'L', 'L', 'W', 'W'] },
-  { code: 'GT', name: TEAM_META.GT.name, shortName: 'GT', color: TEAM_META.GT.color, played: 12, wins: 8, losses: 4, noResults: 0, points: 16, nrr: 0.551, momentum: ['W', 'W', 'W', 'W', 'W'] },
-  { code: 'SRH', name: TEAM_META.SRH.name, shortName: 'SRH', color: TEAM_META.SRH.color, played: 12, wins: 7, losses: 5, noResults: 0, points: 14, nrr: 0.331, momentum: ['W', 'W', 'L', 'W', 'L'] },
-  { code: 'PBKS', name: TEAM_META.PBKS.name, shortName: 'PBKS', color: TEAM_META.PBKS.color, played: 11, wins: 6, losses: 4, noResults: 1, points: 13, nrr: 0.428, momentum: ['W', 'L', 'L', 'L', 'L'] },
-  { code: 'CSK', name: TEAM_META.CSK.name, shortName: 'CSK', color: TEAM_META.CSK.color, played: 11, wins: 6, losses: 5, noResults: 0, points: 12, nrr: 0.185, momentum: ['W', 'L', 'W', 'W', 'W'] },
-  { code: 'RR', name: TEAM_META.RR.name, shortName: 'RR', color: TEAM_META.RR.color, played: 11, wins: 6, losses: 5, noResults: 0, points: 12, nrr: 0.082, momentum: ['W', 'L', 'W', 'L', 'L'] },
-  { code: 'DC', name: TEAM_META.DC.name, shortName: 'DC', color: TEAM_META.DC.color, played: 12, wins: 5, losses: 7, noResults: 0, points: 10, nrr: -0.993, momentum: ['L', 'W', 'L', 'L', 'W'] },
-  { code: 'KKR', name: TEAM_META.KKR.name, shortName: 'KKR', color: TEAM_META.KKR.color, played: 11, wins: 4, losses: 6, noResults: 1, points: 9, nrr: -0.198, momentum: ['W', 'W', 'W', 'W', 'L'] },
-  { code: 'MI', name: TEAM_META.MI.name, shortName: 'MI', color: TEAM_META.MI.color, played: 11, wins: 3, losses: 8, noResults: 0, points: 6, nrr: -0.585, momentum: ['L', 'L', 'L', 'W', 'L'] },
-  { code: 'LSG', name: TEAM_META.LSG.name, shortName: 'LSG', color: TEAM_META.LSG.color, played: 11, wins: 3, losses: 8, noResults: 0, points: 6, nrr: -0.907, momentum: ['L', 'L', 'L', 'W', 'L'] },
+  { code: 'RCB', name: TEAM_META.RCB.name, shortName: 'RCB', color: TEAM_META.RCB.color, played: 13, wins: 9, losses: 4, noResults: 0, points: 18, nrr: 1.065, momentum: ['W', 'W', 'L', 'W', 'W'] },
+  { code: 'GT', name: TEAM_META.GT.name, shortName: 'GT', color: TEAM_META.GT.color, played: 13, wins: 8, losses: 5, noResults: 0, points: 16, nrr: 0.4, momentum: ['L', 'W', 'W', 'W', 'W'] },
+  { code: 'SRH', name: TEAM_META.SRH.name, shortName: 'SRH', color: TEAM_META.SRH.color, played: 13, wins: 8, losses: 5, noResults: 0, points: 16, nrr: 0.35, momentum: ['W', 'W', 'L', 'W', 'L'] },
+  { code: 'RR', name: TEAM_META.RR.name, shortName: 'RR', color: TEAM_META.RR.color, played: 13, wins: 7, losses: 6, noResults: 0, points: 14, nrr: 0.083, momentum: ['W', 'L', 'W', 'L', 'L'] },
+  { code: 'PBKS', name: TEAM_META.PBKS.name, shortName: 'PBKS', color: TEAM_META.PBKS.color, played: 13, wins: 6, losses: 6, noResults: 1, points: 13, nrr: 0.227, momentum: ['L', 'W', 'L', 'L', 'L'] },
+  { code: 'KKR', name: TEAM_META.KKR.name, shortName: 'KKR', color: TEAM_META.KKR.color, played: 13, wins: 6, losses: 6, noResults: 1, points: 13, nrr: 0.011, momentum: ['W', 'L', 'W', 'W', 'L'] },
+  { code: 'CSK', name: TEAM_META.CSK.name, shortName: 'CSK', color: TEAM_META.CSK.color, played: 13, wins: 6, losses: 7, noResults: 0, points: 12, nrr: -0.016, momentum: ['L', 'W', 'L', 'W', 'W'] },
+  { code: 'DC', name: TEAM_META.DC.name, shortName: 'DC', color: TEAM_META.DC.color, played: 13, wins: 6, losses: 7, noResults: 0, points: 12, nrr: -0.871, momentum: ['L', 'L', 'W', 'L', 'L'] },
+  { code: 'MI', name: TEAM_META.MI.name, shortName: 'MI', color: TEAM_META.MI.color, played: 13, wins: 4, losses: 9, noResults: 0, points: 8, nrr: -0.51, momentum: ['L', 'L', 'L', 'W', 'L'] },
+  { code: 'LSG', name: TEAM_META.LSG.name, shortName: 'LSG', color: TEAM_META.LSG.color, played: 13, wins: 4, losses: 9, noResults: 0, points: 8, nrr: -0.702, momentum: ['L', 'L', 'L', 'W', 'L'] },
 ]
 
 const allFixtures: Fixture[] = [
